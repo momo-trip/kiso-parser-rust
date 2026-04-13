@@ -1,3 +1,3 @@
 *.egg-info/
-__pycache__/
+rust_parser_api/__pycache__/
 *.pyc
