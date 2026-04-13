@@ -36,9 +36,15 @@ from utils_api import (
     get_name_key,
 )
 
+
+MACRO_HOME = "/root/SmartC2Rust/macro"
+TRANS_HOME = "/root/SmartC2Rust/trans"
+RUST_PARSER_HOME = "/root/kiso-parser-rust"
+
+
 # Call Rust tools to generate metadata
-rust_parser_path = "/home/ubuntu/rust_parser/r_parser/target/release/r_parser"  # Adjust the path to suit your environment
-user_name = "ubuntu"
+rust_parser_path = f"{RUST_PARSER_HOME}/rust_parser/r_parser/target/release/r_parser"  # Adjust the path to suit your environment
+user_name = "root"
 
 
 """
@@ -1426,7 +1432,7 @@ def setup_rust_trace(work_dir: str):
     
     Args:
         rust_lib_path: Path to Rust project containing Cargo.toml
-                       e.g.: "/home/ubuntu/c_parser/sample/rust_lib"
+                       e.g.: f"{C_PARSER_HOME}/sample/rust_lib"
     """
 
     rust_lib_path = get_rust_lib_path(work_dir, "trans_rust")
@@ -1491,12 +1497,12 @@ def setup_rust_trace(work_dir: str):
 
 if __name__ == "__main__":
 
-    workspace_dir = "/home/ubuntu/allrust/workspace_0000_zopfli"
+    workspace_dir = f"{TRANS_HOME}/workspace_0000_zopfli"
     
     run_call_flow(
         workspace=workspace_dir,
-        build_script="/home/ubuntu/allrust/workspace_0000_zopfli/run_all.sh",
-        test_script="/home/ubuntu/allrust/workspace_0000_zopfli/zopfli/run_test.sh",
+        build_script=f"{TRANS_HOME}/workspace_0000_zopfli/run_all.sh",
+        test_script=f"{TRANS_HOME}/workspace_0000_zopfli/zopfli/run_test.sh",
         output="trace.txt",
     )
 
@@ -1530,7 +1536,7 @@ if __name__ == "__main__":
 
 """
 cargo build
-cargo run /home/ubuntu/rust_parser/programs/sample_project
+cargo run /root/rust_parser/programs/sample_project
 
 
 # Analyze both
