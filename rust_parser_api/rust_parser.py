@@ -43,7 +43,7 @@ RUST_PARSER_HOME = "/root/kiso-parser-rust"
 
 
 # Call Rust tools to generate metadata
-rust_parser_path = f"{RUST_PARSER_HOME}/rust_parser/r_parser/target/release/r_parser"  # Adjust the path to suit your environment
+rust_parser_path = f"{RUST_PARSER_HOME}/r_parser/target/release/r_parser"  # Adjust the path to suit your environment
 user_name = "root"
 
 
@@ -442,7 +442,7 @@ def get_rust_dependencies(file_path, lib_path, build_path, cargo_path, map_path)
     dependencies = []
     
     # Check rust_parser path
-    rust_parser_dir = f"/home/{user_name}/rust_parser/r_parser"
+    rust_parser_dir = f"{RUST_PARSER_HOME}/r_parser"
     if not os.path.exists(rust_parser_dir):
         print(f"Warning: rust_parser not found at {rust_parser_dir}")
         return [lib_path, build_path, cargo_path]
